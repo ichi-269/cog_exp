@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/top.css') }}"/>
+    <script>
+        function check_agreement1() {
+            if (document.getElementById('agreement').checked) {
+                document.getElementById('need_agree').style.display = "none";
+                document.getElementById('when_agreeing').style.display = "inline-grid";
+            } else {
+                document.getElementById('need_agree').style.display = "inline-grid";
+                document.getElementById('when_agreeing').style.display = "none";
+            }
+        }
+        function check_agreement2() {
+            let checks = document.getElementsByClassName("checks");
+            let count = 0;
+            for (let i = 0; i < checks.length; i++) {
+                if (checks[i].checked) count++;
+            }
+            if (count == checks.length) {
+                document.getElementById("button").removeAttribute("disabled");
+            } else {
+                document.getElementById("button").setAttribute("disabled", true);
+            }
+        }
+    </script>
+</head>
+
+<body>
+    
+    <div style="margin:auto;">
+    <h1 id="examine_header">注意事項</h1>
+    <h3>以下の内容をご確認の上、ご同意いただける場合「同意します」にチェックして、「開始する」をクリックしてください。</h3>
+    </div>
+
+    <div style="margin:auto; text-align: left;">
+    <div style="background: #f3f9fc;border: 2px skyblue dashed; padding: 10px 10px; border-radius: 15px; text-align:left">
+        <p><b>【本調査の目的】</b><br>
+        本調査では、特定の出来事の観察を行った際に、人間がどのような判断を行うかを調べることを目的としています。</p>
+        
+        <p><b>【本調査の回答方法】</b><br>
+        調査の所要時間は約10分程度です。正しい回答・誤った回答はありませんので、ご自身の考えた通りに回答を進めてください。</p>
+        
+        <p><b>【自発的参加の原則，および参加辞退への機会保証と不利益防止への排除】</b><br>
+        <b>調査への参加は、あなたの自発的行為によるものです。あなたはいつ、いかなる理由によっても、調査への参加を中止できます。</b>参加を中断しても、ペナルティは発生しません。参加の辞退や、調査で得たデータを理由にして、あなたに不利益が及ぶことはありません。</p>
+
+        <p><b>【想定されるリスクとその対策】</b><br>
+        調査自体に危険性はありませんが、いくつかの質問では回答に悩むかもしれません。本調査の質問は、誰もが悩むように作られていますので、<b>思ったままを</b>答えてください。また、回答中に疲れを感じる可能性があります。これ以上回答をすることが難しいと感じた場合は、いつでも回答を中断してください。回答を中断することで、不利益を被ることはありません。</p>
+
+        <p><b>【プライバシーの保護について】</b><br>
+        本調査では個人を特定できるような情報は収集しません。研究成果を学会や学術雑誌で報告するときは、回答していただいたデータは全て匿名化のうえで処理され、全体の傾向のみが報告されるため、個人の結果を取り上げることはありません。また、研究以外の目的でデータを使用することはありません。
+        </p>
+
+        <p><b>【調査協力への報酬】</b><br>
+        クラウドソーシングサービスを経由して調査に参加していただいた方には、クラウドソーシングサービスを介して規定の謝礼をお支払いします。それ以外の場合は自由意志かつ無償での参加となります。
+        </p>
+
+        <p><b>【研究成果の報告方法】</b><br>
+        本調査で得られた成果は学会や学術雑誌で報告します。データは全て匿名化され、個人が特定できない形で成果を報告しますが、ご自身の回答をデータから除外したいなど、調査結果の報告についての要望があれば、調査責任者までご連絡ください。調査についての質問があれば、調査責任者までご連絡ください。</p>
+
+        <p><b><font color="red">【謝金について】</font></b><br>
+        <font color="red">調査を行う前に、必ずCrowdWorksの作業ページで「作業を開始する」を押してください。</font>この調査にすべて回答すると、最後に調査完了IDが発行されます。調査完了IDをCrowdWorksに入力していただき、タスク完了になります。</p>
+
+        <p><b>【作業中の注意】</b><br>
+        Webページをリロードしてしまうと初めのページに戻ってしまうので、リロードしないように気をつけてください。</p>
+    </div>
+    <br>
+    
+    <div id="need_agree">
+
+    </div>
+    <br>
+    </div>
+    <input type="checkbox" id="agreement" onclick="check_agreement1()" />
+    <label for="agreement">同意します</label>
+    <br>
+    
+    <p>
+    <div id="when_agreeing" style="margin:auto; display:none;">
+        <p>ありがとうございます。</p>
+        <p>以下の文章を読んで、回答ページに進んで下さい。</p>
+        <p>それぞれの項目を読んだら左側のチェックボックスをチェックしてください。</p>
+        <div id="scenario_descriptions" style="margin:auto; text-align: left;">
+            <form action="cgi-bin/abc.cgi" method="post">
+                <p>
+                    <input class="checks" type="checkbox" id="checkbox1" style="transform:scale(1.5)"
+                        onclick="check_agreement2()" />
+                    <label for="checkbox1">これから、ある製薬会社の研究者を演じていただきます。
+                    </label>
+                </p>
+                <br>
+                <p>
+                    <input class="checks" type="checkbox" id="checkbox2" style="transform:scale(1.5)"
+                        onclick="check_agreement2()" />
+                    <label
+                        for="checkbox2">あなたが勤めている製薬会社が新種の成分を６つ発見しました。
+                    </label>
+                </p>
+                <br>
+                <p>
+                    <input class="checks" type="checkbox" id="checkbox3" style="transform:scale(1.5)"
+                        onclick="check_agreement2()" />
+                    <label
+                        for="checkbox3">これらの成分の効果を検証するために、実験参加者に成分を投与する実験が行われました。
+                    </label>
+                </p>
+                <br>
+                <p>
+                    <input class="checks" type="checkbox" id="checkbox4" style="transform:scale(1.5)"
+                        onclick="check_agreement2()" />
+                    <label
+                        for="checkbox4">これから実験の内容とその観察結果が提示されるので、あなたには成分の効果を推論してもらいます。
+                    </label>
+                </p>
+                <p>
+                    <input class="checks" type="checkbox" id="checkbox5" style="transform:scale(1.5)"
+                        onclick="check_agreement2()" />
+                    <label
+                        for="checkbox5">また、これから提示される観察結果は架空のものであり、実在の人物や物事などと関係ありません。
+                    </label>
+                </p>
+                <br>
+                <p>
+                    <input class="checks" type="checkbox" id="checkbox6" style="transform:scale(1.5)"
+                        onclick="check_agreement2()" />
+                    <label
+                        for="checkbox6">回答中のメモなどはお控えください。
+                    </label>
+                </p>
+            </form>
+        </div>
+    </div>
+    </p>
+    <br>
+    <form action="/examine1" style="text-align:center; display:block;">
+        <input type="submit" id='button' value="回答を開始する" disabled>
+    </form>
+</body>
+
+</html>
