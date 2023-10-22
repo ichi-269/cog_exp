@@ -1,4 +1,4 @@
-let file = '../static/material1.json';
+let file = '../static/material2.json';
 var user_data = [];
 var test_order = [];
 var current_sample_selection = [];
@@ -261,7 +261,7 @@ function export_results() {
         data: {
             'user_data': JSON.stringify(user_data),
             'estimations': JSON.stringify(estimations),
-            'file_name_suffix': 'exp1'
+            'file_name_suffix': 'exp2'
         },
         timeout: 50000
     }).done(function (response) {

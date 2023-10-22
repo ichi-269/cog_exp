@@ -12,6 +12,10 @@ p{
     display: inline-block;
     margin: 0.5em 0 0.5em 0;
 }
+ul {
+    font-size: 1.1em; /* 文字サイズを調整 */
+    line-height: 0.8; /* 行間の幅を調整 */
+}
 #scenario_descriptions{
     background: #f3f9fc;
     border: 2px skyblue dashed; 
@@ -46,7 +50,7 @@ p{
     width: 30%;
 }*/
 #estimate_description{
-    display:inline-grid;
+    display:inline-block;
 }
 .sample{
     display:inline-block;

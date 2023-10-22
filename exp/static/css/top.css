@@ -43,6 +43,14 @@ button,input[type="submit"]{
 #notes>b{
     color: red;
 }
+#start_area{
+    background-color: #defae3; 
+    padding: 1px 11px;
+}
+#start_message{
+    color: rgb(1, 110, 1); 
+    text-align: center;
+}
 @media (min-width: 300px) and (max-width: 800px) {
     button {
         width: 80%;

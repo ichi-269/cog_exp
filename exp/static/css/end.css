@@ -14,3 +14,6 @@ ul{
     background: #f3f9fc;
     border: 2px skyblue dashed;
 }
+textarea {
+    height: 80%; /* 高さを調整 */
+}
